@@ -1,2 +1,8 @@
 # Aplicação web em arquitetura de microserviço utilizando Docker 🐳
-Aplicação web PHP em arquitetura de microserviço com containers Docker que se conecta via API Restful Flask com mapeamento objeto-relacional SQLAlchemy, escrito em Python, com persistência em banco de dados PostgreSQL.
+
+Esse artigo foi criado por conta da aula "Microserviço na prática - do zero ao push" apresentado no meu curso de Introdução a Docker! Curtiu?
+[Eu quero o curso](http://bit.ly/cursoAprendaDockerdoZero)
+
+### Como testar?
+
+	git clone

@@ -17,4 +17,11 @@ Agora, manda ver 🤘
 
 Qualquer contribuição é bem-vinda!
 
-Fui...
+### Como funciona?
+
+![](./overview.png)
+
+### Referências
+
+Me basei nesse código: [Docker with SQLAlchemy](https://github.com/hmajid2301/articles/tree/master/8.%20Docker%20with%20SQLAlchemy) do 
+[@hmajid2301](https://github.com/hmajid2301)

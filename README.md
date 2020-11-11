@@ -21,6 +21,10 @@ Qualquer contribuição é bem-vinda!
 
 ![](./overview.png)
 
+Tecnicamente, é uma aplicação web PHP em arquitetura de microserviço com containers Docker que se conecta 
+via API Restful Flask com mapeamento objeto-relacional SQLAlchemy, escrito em Python, com persistência em banco de dados PostgreSQL.
+
+- Mais sobre o assunto no meu blog [AQUI](https://ricardoferreira.site/2020/11/aplicacao-web-microservico-docker-python-php/)
 ### Referências
 
 Me basei nesse código: [Docker with SQLAlchemy](https://github.com/hmajid2301/articles/tree/master/8.%20Docker%20with%20SQLAlchemy) do 

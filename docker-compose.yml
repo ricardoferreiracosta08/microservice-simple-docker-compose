@@ -1,0 +1,39 @@
+version: '3.5'
+services:
+  database-books:
+    image: postgres:13-alpine
+    env_file: db-books/database.conf
+    volumes:
+      - db_volume-books:/var/lib/postgresql/data
+  database-readers:
+    image: postgres:13-alpine
+    env_file: db-readers/database.conf
+    volumes:
+      - db_volume-readers:/var/lib/postgresql/data
+  api-books:
+    build: ./apirestful_flask_books
+    env_file: ./apirestful_flask_books/database.conf
+    ports:
+      - 5000:5000
+    depends_on:
+      - database-books
+  api-readers:
+    build: ./apirestful_flask_readers
+    env_file: ./apirestful_flask_readers/database.conf
+    ports:
+      - 5001:5000
+    depends_on:
+      - database-readers
+  web:
+    image: php:7.4.12-apache-buster
+    volumes:
+      - ./web:/var/www/html 
+    ports:
+      - 80:80 
+    depends_on:
+      - api-readers
+      - api-books
+
+volumes:
+  db_volume-books:
+  db_volume-readers:

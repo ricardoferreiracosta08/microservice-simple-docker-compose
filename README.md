@@ -24,6 +24,23 @@ Qualquer contribuição é bem-vinda!
 Tecnicamente, é uma aplicação web PHP em arquitetura de microserviço com containers Docker que se conecta 
 via API Restful Flask com mapeamento objeto-relacional SQLAlchemy, escrito em Python, com persistência em banco de dados PostgreSQL.
 
+Com 3 endpoints em cada API (books e readers):
+
+/add (método POST)
+
+	curl -X POST -H 'Content-Type: application/json' -d '{"name": "Python Book", "price": 400}' http://localhost:5000/add
+	curl -X POST -H 'Content-Type: application/json' -d '{"name": "Ricardo"}' http://localhost:5001/add
+
+/remove/<reader_id> (método DELETE)
+
+	curl -X DELETE -H 'Content-Type: application/json' http://localhost:5000/remove/1
+	curl -X DELETE -H 'Content-Type: application/json' http://localhost:5001/remove/1
+
+/edit/<reader_id> (método PATCH)
+
+	curl -X PATCH -H 'Content-Type: application/json' http://localhost:5000/remove/1 -d '{"name": "Python Book", "price": 400}'
+	curl -X PATCH -H 'Content-Type: application/json' http://localhost:5001/remove/1 -d '{"name": "Fulano" }'
+
 - Mais sobre o assunto no meu blog [AQUI](https://ricardoferreira.site/2020/11/aplicacao-web-microservico-docker-python-php/)
 ### Referências
 

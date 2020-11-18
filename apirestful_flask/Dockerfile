@@ -10,11 +10,11 @@ RUN apk add --no-cache postgresql-dev
 WORKDIR /usr/src/app
 
 # muda com mais frequencia
-COPY api.py entrypoint.sh ./ 
-COPY . ./
+COPY entrypoint.sh /root 
+COPY requirements.txt /root 
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /root/requirements.txt
 
 # Start app
 EXPOSE 5000
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["/root/entrypoint.sh"]

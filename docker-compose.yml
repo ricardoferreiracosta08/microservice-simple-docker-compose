@@ -1,5 +1,10 @@
 version: '3.5'
 services:
+  api:
+    image: apirestful_flask:v1
+    build: ./apirestful_flask
+    entrypoint: "/bin/sh -c"
+    command: "exit 0"
   database-books:
     image: postgres:13-alpine
     env_file: db-books/database.conf
@@ -11,18 +16,24 @@ services:
     volumes:
       - db_volume-readers:/var/lib/postgresql/data
   api-books:
-    build: ./apirestful_flask_books
-    env_file: ./apirestful_flask_books/database.conf
+    image: apirestful_flask:v1
+    env_file: ./books/src/app/database.conf
     ports:
       - 5000:5000
+    volumes:
+      - ./books/src/app:/usr/src/app/ 
     depends_on:
+      - api
       - database-books
   api-readers:
-    build: ./apirestful_flask_readers
-    env_file: ./apirestful_flask_readers/database.conf
+    image: apirestful_flask:v1
+    env_file: ./readers/src/app/database.conf
     ports:
       - 5001:5000
+    volumes:
+      - ./readers/src/app:/usr/src/app/
     depends_on:
+      - api
       - database-readers
   web:
     image: php:7.4.12-apache-buster
